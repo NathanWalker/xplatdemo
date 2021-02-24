@@ -27,5 +27,51 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "xplat-core": {
+      "tags": []
+    },
+    "xplat-features": {
+      "tags": []
+    },
+    "xplat-scss": {
+      "tags": []
+    },
+    "xplat-utils": {
+      "tags": []
+    },
+    "xplat-web-core": {
+      "tags": []
+    },
+    "xplat-web-features": {
+      "tags": []
+    },
+    "xplat-web-scss": {
+      "tags": []
+    },
+    "web-myapp": {
+      "tags": []
+    },
+    "web-myapp-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "web-myapp"
+      ]
+    },
+    "xplat-nativescript-scss": {
+      "tags": []
+    },
+    "xplat-nativescript-utils": {
+      "tags": []
+    },
+    "xplat-nativescript-core": {
+      "tags": []
+    },
+    "xplat-nativescript-features": {
+      "tags": []
+    },
+    "nativescript-mobile": {
+      "tags": []
+    }
+  }
 }

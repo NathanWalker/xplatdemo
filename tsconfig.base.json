@@ -10,11 +10,45 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@xplatdemo/xplat/core": [
+        "libs/xplat/core/src/index.ts"
+      ],
+      "@xplatdemo/xplat/features": [
+        "libs/xplat/features/src/index.ts"
+      ],
+      "@xplatdemo/xplat/utils": [
+        "libs/xplat/utils/src/index.ts"
+      ],
+      "@xplatdemo/xplat/web/core": [
+        "libs/xplat/web/core/src/index.ts"
+      ],
+      "@xplatdemo/xplat/web/features": [
+        "libs/xplat/web/features/src/index.ts"
+      ],
+      "@xplatdemo/xplat/environments": [
+        "libs/xplat/core/src/lib/environments/base/index.ts"
+      ],
+      "@xplatdemo/xplat/nativescript/utils": [
+        "libs/xplat/nativescript/utils/src/index.ts"
+      ],
+      "@xplatdemo/xplat/nativescript/core": [
+        "libs/xplat/nativescript/core/src/index.ts"
+      ],
+      "@xplatdemo/xplat/nativescript/features": [
+        "libs/xplat/nativescript/features/src/index.ts"
+      ]
+    }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
