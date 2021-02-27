@@ -7,4 +7,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformNativeScriptDynamic().bootstrapModule(AppModule);
+platformNativeScriptDynamic({
+  async: true
+}).bootstrapModule(AppModule);
