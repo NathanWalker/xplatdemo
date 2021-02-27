@@ -12,5 +12,9 @@ module.exports = {
     '<rootDir>/libs/xplat/nativescript/utils',
     '<rootDir>/libs/xplat/nativescript/core',
     '<rootDir>/libs/xplat/nativescript/features',
+    '<rootDir>/libs/xplat/ionic/core',
+    '<rootDir>/libs/xplat/ionic/features',
+    '<rootDir>/libs/xplat/ionic/scss',
+    '<rootDir>/libs/xplat/electron/core',
   ],
 };

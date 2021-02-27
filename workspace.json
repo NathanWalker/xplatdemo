@@ -196,6 +196,7 @@
               "apps/web-myapp/src/assets"
             ],
             "styles": [
+              "libs/xplat/web/scss/src/_index.scss",
               "apps/web-myapp/src/styles.scss"
             ],
             "scripts": []
@@ -473,6 +474,340 @@
           }
         }
       }
+    },
+    "xplat-ionic-core": {
+      "root": "libs/xplat/ionic/core",
+      "sourceRoot": "libs/xplat/ionic/core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/xplat/ionic/core/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/xplat/ionic/core"
+          ],
+          "options": {
+            "jestConfig": "libs/xplat/ionic/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "xplat-ionic-features": {
+      "root": "libs/xplat/ionic/features",
+      "sourceRoot": "libs/xplat/ionic/features/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/xplat/ionic/features/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/xplat/ionic/features"
+          ],
+          "options": {
+            "jestConfig": "libs/xplat/ionic/features/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "xplat-ionic-scss": {
+      "root": "libs/xplat/ionic/scss",
+      "sourceRoot": "libs/xplat/ionic/scss/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/xplat/ionic/scss/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/xplat/ionic/scss"
+          ],
+          "options": {
+            "jestConfig": "libs/xplat/ionic/scss/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ionic-humanresources": {
+      "projectType": "application",
+      "generators": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "root": "apps/ionic-humanresources/",
+      "sourceRoot": "apps/ionic-humanresources/src",
+      "prefix": "xplatdemo",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "apps/ionic-humanresources/www",
+            "index": "apps/ionic-humanresources/src/index.html",
+            "main": "apps/ionic-humanresources/src/main.ts",
+            "polyfills": "apps/ionic-humanresources/src/polyfills.ts",
+            "tsConfig": "apps/ionic-humanresources/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/ionic-humanresources/src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              {
+                "input": "apps/ionic-humanresources/src/theme/variables.scss"
+              },
+              {
+                "input": "apps/ionic-humanresources/src/global.scss"
+              }
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ionic-humanresources/src/environments/environment.ts",
+                  "with": "apps/ionic-humanresources/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "ci": {
+              "progress": false
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ionic-humanresources:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ionic-humanresources:build:production"
+            },
+            "ci": {
+              "progress": false
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ionic-humanresources:build"
+          }
+        },
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/ionic-humanresources/src/test.ts",
+            "polyfills": "apps/ionic-humanresources/src/polyfills.ts",
+            "tsConfig": "apps/ionic-humanresources/tsconfig.spec.json",
+            "karmaConfig": "apps/ionic-humanresources/karma.conf.js",
+            "styles": [],
+            "scripts": [],
+            "assets": [
+              {
+                "glob": "favicon.ico",
+                "input": "apps/ionic-humanresources/src/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "apps/ionic-humanresources/src/assets",
+                "output": "/assets"
+              }
+            ]
+          },
+          "configurations": {
+            "ci": {
+              "progress": false,
+              "watch": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ionic-humanresources/tsconfig.app.json",
+              "apps/ionic-humanresources/tsconfig.spec.json",
+              "apps/ionic-humanresources/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "ionic-cordova-build": {
+          "executor": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "ionic-humanresources:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ionic-humanresources:build:production"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "executor": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "ionic-humanresources:ionic-cordova-build",
+            "devServerTarget": "ionic-humanresources:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "ionic-humanresources:ionic-cordova-build:production",
+              "devServerTarget": "ionic-humanresources:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "xplat-electron-core": {
+      "root": "libs/xplat/electron/core",
+      "sourceRoot": "libs/xplat/electron/core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/xplat/electron/core/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/xplat/electron/core"
+          ],
+          "options": {
+            "jestConfig": "libs/xplat/electron/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "electron-desktop": {
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/electron-desktop",
+            "index": "apps/web-myapp/src/index.html",
+            "main": "apps/web-myapp/src/main.electron.ts",
+            "polyfills": "apps/web-myapp/src/polyfills.ts",
+            "tsConfig": "apps/web-myapp/tsconfig.electron.json",
+            "aot": true,
+            "assets": [
+              "apps/web-myapp/src/favicon.ico",
+              "apps/web-myapp/src/assets",
+              {
+                "glob": "**/*",
+                "input": "apps/electron-desktop/src/",
+                "ignore": [
+                  "**/*.ts"
+                ],
+                "output": ""
+              }
+            ],
+            "styles": [
+              "apps/web-myapp/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/web-myapp/src/environments/environment.ts",
+                  "with": "apps/web-myapp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "electron-desktop:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "electron-desktop:build:production"
+            }
+          }
+        }
+      },
+      "root": "apps/web-myapp",
+      "sourceRoot": "apps/web-myapp/src",
+      "prefix": "xplatdemo"
     }
   },
   "cli": {

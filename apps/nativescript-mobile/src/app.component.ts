@@ -5,8 +5,9 @@ import { AppBaseComponent } from '@xplatdemo/xplat/nativescript/features';
 @Component({
   selector: 'xplatdemo-root',
   template: `
-    <GridLayout>
+    <GridLayout rows="*,auto">
       <page-router-outlet></page-router-outlet>
+      <xplatdemo-footer></xplatdemo-footer>
     </GridLayout>
   `
 })

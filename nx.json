@@ -18,12 +18,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -54,9 +49,7 @@
     },
     "web-myapp-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "web-myapp"
-      ]
+      "implicitDependencies": ["web-myapp"]
     },
     "xplat-nativescript-scss": {
       "tags": []
@@ -71,6 +64,24 @@
       "tags": []
     },
     "nativescript-mobile": {
+      "tags": []
+    },
+    "xplat-ionic-core": {
+      "tags": []
+    },
+    "xplat-ionic-features": {
+      "tags": []
+    },
+    "xplat-ionic-scss": {
+      "tags": []
+    },
+    "ionic-humanresources": {
+      "tags": []
+    },
+    "xplat-electron-core": {
+      "tags": []
+    },
+    "electron-desktop": {
       "tags": []
     }
   }
